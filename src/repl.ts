@@ -10,7 +10,7 @@ export function cleanInput (input: string): string[] {
     return stringArray
 }
 
-export function startREPL(state: State) {
+export async function startREPL(state: State) {
     state.readline.prompt();
 
     state.readline.on("line", async (input) => {
@@ -32,11 +32,13 @@ export function startREPL(state: State) {
 
 
         try {
-            command.callback(state);
+            await command.callback(state);
         } catch (err) {
             console.log(err);
         }
 
         state.readline.prompt();
     });
+
+    state.readline.on("close", () => process.exit(0));
 }

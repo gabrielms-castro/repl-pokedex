@@ -1,9 +1,14 @@
 import { startREPL } from "./repl.js";
 import { initState } from "./state.js";
 
-function main() {
+async function main() {
     const state = initState()
-    startREPL(state);
+    
+    try {
+        await startREPL(state);
+    } catch (err) {
+        throw new Error(`Error starting REPL: ${err}`);
+    }
 }
 
 main();
