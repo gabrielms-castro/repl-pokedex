@@ -34,7 +34,7 @@ export async function startREPL(state: State) {
         try {
             await command.callback(state);
         } catch (err) {
-            console.log(err);
+            console.log((err as Error).message);
         }
 
         state.readline.prompt();
