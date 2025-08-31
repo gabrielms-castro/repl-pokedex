@@ -1,23 +1,34 @@
-export type Location = {
-  areas: Area[]
-  game_indices: Index[]
+export type Root = {
+  encounter_method_rates: EncounterMethodRate[]
+  game_index: number
   id: number
+  location: Location
   name: string
   names: Name[]
-  region: Region
+  pokemon_encounters: PokemonEncounter[]
 }
 
-export type Area = {
+export type EncounterMethodRate = {
+  encounter_method: EncounterMethod
+  version_details: VersionDetail[]
+}
+
+export type EncounterMethod = {
   name: string
   url: string
 }
 
-export type Index = {
-  game_index: number
-  generation: Generation
+export type VersionDetail = {
+  rate: number
+  version: Version
 }
 
-export type Generation = {
+export type Version = {
+  name: string
+  url: string
+}
+
+export type Location = {
   name: string
   url: string
 }
@@ -32,7 +43,36 @@ export type Language = {
   url: string
 }
 
-export type Region = {
+export type PokemonEncounter = {
+  pokemon: Pokemon
+  version_details: VersionDetail2[]
+}
+
+export type Pokemon = {
+  name: string
+  url: string
+}
+
+export type VersionDetail2 = {
+  encounter_details: EncounterDetail[]
+  max_chance: number
+  version: Version2
+}
+
+export type EncounterDetail = {
+  chance: number
+  condition_values: any[]
+  max_level: number
+  method: Method
+  min_level: number
+}
+
+export type Method = {
+  name: string
+  url: string
+}
+
+export type Version2 = {
   name: string
   url: string
 }
