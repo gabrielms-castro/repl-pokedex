@@ -1,5 +1,5 @@
 import { createInterface, Interface } from "readline";
-import { getCommands } from "./commands.js";
+import { getCommands } from "./commands/commands.js";
 import { PokeAPI } from "./pokeapi.js";
 
 export type CLICommand = {

@@ -1,5 +1,5 @@
 import { stat } from "fs";
-import { State } from "./state.js";
+import { State } from "../state.js";
 
 export async function commandMap(state: State) {
     const response = await state.api.fetchLocations(state.nextLocationsURL) // if not null, will pass the URL saved in current State

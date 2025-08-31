@@ -1,4 +1,4 @@
-import { State } from "./state.js";
+import { State } from "../state.js";
 
 export async function commandHelp(state: State) {
     console.log();
@@ -9,4 +9,5 @@ export async function commandHelp(state: State) {
     for (const commandName of Object.values(state.commands)) {
         console.log(`${commandName.name}: ${commandName.description}`);
     }
+    console.log()
 }
