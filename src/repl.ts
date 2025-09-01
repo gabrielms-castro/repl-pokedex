@@ -39,6 +39,4 @@ export async function startREPL(state: State) {
 
         state.readline.prompt();
     });
-
-    state.readline.on("close", () => process.exit(0));
 }
