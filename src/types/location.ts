@@ -1,4 +1,4 @@
-export type Root = {
+export type LocationByName = {
   encounter_method_rates: EncounterMethodRate[]
   game_index: number
   id: number

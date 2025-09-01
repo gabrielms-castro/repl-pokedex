@@ -1,4 +1,4 @@
-import { Location } from "./types/location.js"
+import { LocationByName } from "./types/location.js"
 import { ShallowLocations } from "./types/shallow_locations.js"
 import { Cache } from "./pokecache.js"
 
@@ -42,12 +42,12 @@ export class PokeAPI {
        }
     }
 
-    async fetchLocation(locationName: string): Promise<Location> {
+    async fetchLocation(locationName: string): Promise<LocationByName> {
         const url = `${PokeAPI.baseURL}/location-area/${locationName}`;
         
         try {
             // return the cached location if it exists/stored
-            const hit = this.cache.get<Location>(url);
+            const hit = this.cache.get<LocationByName>(url);
             if (hit) return hit;
     
             const response = await fetch(url, {
@@ -59,7 +59,7 @@ export class PokeAPI {
                 throw new Error(`Error fetching ${locationName} location: ${response.status} ${response.statusText}`);
             }
     
-            const result: Location = await response.json();
+            const result: LocationByName = await response.json();
     
             // store the result in the cache
             this.cache.add(url, result);
