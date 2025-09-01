@@ -1,6 +1,7 @@
 // Registry of commands. Gives abstraction for managing commands
 
 import { commandExit } from "./command_exit.js";
+import { commandExplore } from "./command_explore.js";
 import { commandHelp } from "./command_help.js";
 import { commandMap, commandMapBack } from "./command_map.js";
 import { CLICommand } from "../state.js";
@@ -30,6 +31,12 @@ export function getCommands(): Record<string, CLICommand> {
             name: "mapb",
             description: "Displays the name of the 20 previous location areas",
             callback: commandMapBack
+        },
+
+        explore: {
+            name: "explore",
+            description: "Displays a list of all Pokemon in a given area",
+            callback: commandExplore
         },
 
         
