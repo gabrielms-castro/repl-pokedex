@@ -1,3 +1,4 @@
+import { commandExit } from './commands/command_exit.js';
 import { State } from './state.js';
 
 export function cleanInput (input: string): string[] {
@@ -21,6 +22,8 @@ export async function startREPL(state: State) {
         }
         
         const commandName = words[0]
+        const args = words.slice(1)
+
         const commands = state.commands
         const command = commands[commandName];
 
@@ -32,7 +35,7 @@ export async function startREPL(state: State) {
 
 
         try {
-            await command.callback(state);
+            await command.callback(state, ...args);
         } catch (err) {
             console.log((err as Error).message);
         }
