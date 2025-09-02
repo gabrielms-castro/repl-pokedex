@@ -1,6 +1,8 @@
 import { createInterface, Interface } from "readline";
 import { getCommands } from "./commands/commands.js";
 import { PokeAPI } from "./pokeapi.js";
+import { Pokemon } from "./types/pokemon.js";
+import { StdioNull } from "child_process";
 
 export type CLICommand = {
     name: string;
@@ -14,6 +16,7 @@ export type State = {
     api: PokeAPI;
     nextLocationsURL: string | null;
     previousLocationsURL: string | null;
+    pokedex: Record<string, Pokemon> | null
 }
 
 export function initState(): State {
@@ -28,6 +31,7 @@ export function initState(): State {
         commands: getCommands(),
         api: new PokeAPI(),
         nextLocationsURL: null,
-        previousLocationsURL: null
+        previousLocationsURL: null,
+        pokedex: null,
     }
 }

@@ -1,6 +1,7 @@
 import { LocationByName } from "./types/location.js"
 import { ShallowLocations } from "./types/shallow_locations.js"
 import { Cache } from "./pokecache.js"
+import { Pokemon } from "./types/pokemon.js";
 
 export class PokeAPI {
     private static baseURL = "https://pokeapi.co/api/v2";
@@ -56,7 +57,7 @@ export class PokeAPI {
             });
     
             if (!response.ok) {
-                throw new Error(`Error fetching ${locationName} location: ${response.status} ${response.statusText}`);
+                throw new Error(`Error fetching ${locationName} location: ${response.status} - ${response.statusText}`);
             }
     
             const result: LocationByName = await response.json();
@@ -67,6 +68,32 @@ export class PokeAPI {
             return result;
         } catch (err) {
             throw new Error(`Error fetching location '${locationName}': ${(err as Error).message}`)
+        }
+    }
+
+    async fetchPokemon(pokemonName: string) : Promise<Pokemon> {
+        const url = `${PokeAPI.baseURL}/pokemon/${pokemonName}`
+        
+        try {
+            const hit = this.cache.get<Pokemon>(url);
+            if (hit) return hit;
+
+            const response = await fetch(url, {
+                method: "GET",
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error fetching Pokemon '${pokemonName}': ${response.status} - ${response.statusText}`)
+            }
+
+            const result = await response.json()
+
+            this.cache.add(url, result)
+
+            return result;
+
+        } catch (err) {
+            throw new Error(`Error fetching Pokemon '${pokemonName}': ${(err as Error).message}`)
         }
     }
 }

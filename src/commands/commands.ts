@@ -1,5 +1,6 @@
 // Registry of commands. Gives abstraction for managing commands
 
+import { commandCatch } from "./command_catch.js";
 import { commandExit } from "./command_exit.js";
 import { commandExplore } from "./command_explore.js";
 import { commandHelp } from "./command_help.js";
@@ -39,7 +40,11 @@ export function getCommands(): Record<string, CLICommand> {
             callback: commandExplore
         },
 
-        
+        catch: {
+            name: "catch",
+            description: "Try to catch a Pokemon",
+            callback: commandCatch
+        }
         // add more commands here in the future
     }
 }   
