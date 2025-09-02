@@ -1,4 +1,4 @@
-export interface Pokemon {
+export type Pokemon = {
   abilities: Ability[]
   base_experience: number
   cries: Cries
@@ -21,86 +21,86 @@ export interface Pokemon {
   weight: number
 }
 
-export interface Ability {
+export type Ability = {
   ability: Ability2
   is_hidden: boolean
   slot: number
 }
 
-export interface Ability2 {
+export type Ability2 = {
   name: string
   url: string
 }
 
-export interface Cries {
+export type Cries = {
   latest: string
   legacy: string
 }
 
-export interface Form {
+export type Form = {
   name: string
   url: string
 }
 
-export interface Index {
+export type Index = {
   game_index: number
   version: Version
 }
 
-export interface Version {
+export type Version = {
   name: string
   url: string
 }
 
-export interface Mfe {
+export type Mfe = {
   move: Move
   version_group_details: VersionGroupDetail[]
 }
 
-export interface Move {
+export type Move = {
   name: string
   url: string
 }
 
-export interface VersionGroupDetail {
+export type VersionGroupDetail = {
   level_learned_at: number
   move_learn_method: MoveLearnMethod
   order?: number
   version_group: VersionGroup
 }
 
-export interface MoveLearnMethod {
+export type MoveLearnMethod = {
   name: string
   url: string
 }
 
-export interface VersionGroup {
+export type VersionGroup = {
   name: string
   url: string
 }
 
-export interface PastAbility {
+export type PastAbility = {
   abilities: Ability3[]
   generation: Generation
 }
 
-export interface Ability3 {
+export type Ability3 = {
   ability: any
   is_hidden: boolean
   slot: number
 }
 
-export interface Generation {
+export type Generation = {
   name: string
   url: string
 }
 
-export interface Species {
+export type Species = {
   name: string
   url: string
 }
 
-export interface Sprites {
+export type Sprites = {
   back_default: string
   back_female: any
   back_shiny: string
@@ -113,31 +113,31 @@ export interface Sprites {
   versions: Versions
 }
 
-export interface Other {
+export type Other = {
   dream_world: DreamWorld
   home: Home
   "official-artwork": OfficialArtwork
   showdown: Showdown
 }
 
-export interface DreamWorld {
+export type DreamWorld = {
   front_default: string
   front_female: any
 }
 
-export interface Home {
+export type Home = {
   front_default: string
   front_female: any
   front_shiny: string
   front_shiny_female: any
 }
 
-export interface OfficialArtwork {
+export type OfficialArtwork = {
   front_default: string
   front_shiny: string
 }
 
-export interface Showdown {
+export type Showdown = {
   back_default: string
   back_female: any
   back_shiny: string
@@ -148,7 +148,7 @@ export interface Showdown {
   front_shiny_female: any
 }
 
-export interface Versions {
+export type Versions = {
   "generation-i": GenerationI
   "generation-ii": GenerationIi
   "generation-iii": GenerationIii
@@ -159,12 +159,12 @@ export interface Versions {
   "generation-viii": GenerationViii
 }
 
-export interface GenerationI {
+export type GenerationI = {
   "red-blue": RedBlue
   yellow: Yellow
 }
 
-export interface RedBlue {
+export type RedBlue = {
   back_default: string
   back_gray: string
   back_transparent: string
@@ -173,7 +173,7 @@ export interface RedBlue {
   front_transparent: string
 }
 
-export interface Yellow {
+export type Yellow = {
   back_default: string
   back_gray: string
   back_transparent: string
@@ -182,13 +182,13 @@ export interface Yellow {
   front_transparent: string
 }
 
-export interface GenerationIi {
+export type GenerationIi = {
   crystal: Crystal
   gold: Gold
   silver: Silver
 }
 
-export interface Crystal {
+export type Crystal = {
   back_default: string
   back_shiny: string
   back_shiny_transparent: string
@@ -199,7 +199,7 @@ export interface Crystal {
   front_transparent: string
 }
 
-export interface Gold {
+export type Gold = {
   back_default: string
   back_shiny: string
   front_default: string
@@ -207,7 +207,7 @@ export interface Gold {
   front_transparent: string
 }
 
-export interface Silver {
+export type Silver = {
   back_default: string
   back_shiny: string
   front_default: string
@@ -215,38 +215,38 @@ export interface Silver {
   front_transparent: string
 }
 
-export interface GenerationIii {
+export type GenerationIii = {
   emerald: Emerald
   "firered-leafgreen": FireredLeafgreen
   "ruby-sapphire": RubySapphire
 }
 
-export interface Emerald {
+export type Emerald = {
   front_default: string
   front_shiny: string
 }
 
-export interface FireredLeafgreen {
+export type FireredLeafgreen = {
   back_default: string
   back_shiny: string
   front_default: string
   front_shiny: string
 }
 
-export interface RubySapphire {
+export type RubySapphire = {
   back_default: string
   back_shiny: string
   front_default: string
   front_shiny: string
 }
 
-export interface GenerationIv {
+export type GenerationIv = {
   "diamond-pearl": DiamondPearl
   "heartgold-soulsilver": HeartgoldSoulsilver
   platinum: Platinum
 }
 
-export interface DiamondPearl {
+export type DiamondPearl = {
   back_default: string
   back_female: any
   back_shiny: string
@@ -257,7 +257,7 @@ export interface DiamondPearl {
   front_shiny_female: any
 }
 
-export interface HeartgoldSoulsilver {
+export type HeartgoldSoulsilver = {
   back_default: string
   back_female: any
   back_shiny: string
@@ -268,7 +268,7 @@ export interface HeartgoldSoulsilver {
   front_shiny_female: any
 }
 
-export interface Platinum {
+export type Platinum = {
   back_default: string
   back_female: any
   back_shiny: string
@@ -279,11 +279,11 @@ export interface Platinum {
   front_shiny_female: any
 }
 
-export interface GenerationV {
+export type GenerationV = {
   "black-white": BlackWhite
 }
 
-export interface BlackWhite {
+export type BlackWhite = {
   animated: Animated
   back_default: string
   back_female: any
@@ -295,7 +295,7 @@ export interface BlackWhite {
   front_shiny_female: any
 }
 
-export interface Animated {
+export type Animated = {
   back_default: string
   back_female: any
   back_shiny: string
@@ -306,68 +306,68 @@ export interface Animated {
   front_shiny_female: any
 }
 
-export interface GenerationVi {
+export type GenerationVi = {
   "omegaruby-alphasapphire": OmegarubyAlphasapphire
   "x-y": XY
 }
 
-export interface OmegarubyAlphasapphire {
+export type OmegarubyAlphasapphire = {
   front_default: string
   front_female: any
   front_shiny: string
   front_shiny_female: any
 }
 
-export interface XY {
+export type XY = {
   front_default: string
   front_female: any
   front_shiny: string
   front_shiny_female: any
 }
 
-export interface GenerationVii {
+export type GenerationVii = {
   icons: Icons
   "ultra-sun-ultra-moon": UltraSunUltraMoon
 }
 
-export interface Icons {
+export type Icons = {
   front_default: string
   front_female: any
 }
 
-export interface UltraSunUltraMoon {
+export type UltraSunUltraMoon = {
   front_default: string
   front_female: any
   front_shiny: string
   front_shiny_female: any
 }
 
-export interface GenerationViii {
+export type GenerationViii = {
   icons: Icons2
 }
 
-export interface Icons2 {
+export type Icons2 = {
   front_default: string
   front_female: any
 }
 
-export interface Stat {
+export type Stat = {
   base_stat: number
   effort: number
   stat: Stat2
 }
 
-export interface Stat2 {
+export type Stat2 = {
   name: string
   url: string
 }
 
-export interface Type {
+export type Type = {
   slot: number
   type: Type2
 }
 
-export interface Type2 {
+export type Type2 = {
   name: string
   url: string
 }

@@ -9,7 +9,10 @@ export async function commandCatch(state: State, pokemon: string) {
     
     if (catchChances > pokemonBaseExperience) {
         console.log(`${pokemon} was caught!`)
-        state.pokedex = { pokemon: pokemonSearch}
+
+        if (!state.pokedex) state.pokedex = {};
+        
+        state.pokedex[pokemon] = pokemonSearch
     } else {
         console.log(`${pokemon} escaped!`)
     }

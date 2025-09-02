@@ -2,7 +2,6 @@ import { createInterface, Interface } from "readline";
 import { getCommands } from "./commands/commands.js";
 import { PokeAPI } from "./pokeapi.js";
 import { Pokemon } from "./types/pokemon.js";
-import { StdioNull } from "child_process";
 
 export type CLICommand = {
     name: string;
